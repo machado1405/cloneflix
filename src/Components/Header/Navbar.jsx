@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../Assets/logo.png";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ url }) {
   return (
     <header className={styles.header}>
       <nav className={`${styles.navbar} container`}>

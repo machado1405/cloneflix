@@ -1,10 +1,6 @@
 .header {
   box-shadow: 0px 1px 1px var(--green-weak);
   border-bottom: 1px solid var(--green-strong);
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  top: 0px;
 }
 
 .navbar {

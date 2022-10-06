@@ -7,6 +7,7 @@ export default function Input({
   name,
   placeholder,
   value,
+  error,
   onChange,
   onBlur,
 }) {
@@ -25,6 +26,7 @@ export default function Input({
         onChange={onChange}
         onBlur={onBlur}
       />
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }
