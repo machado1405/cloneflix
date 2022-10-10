@@ -1,0 +1,14 @@
+.divImg button{
+  margin: 1rem 0;
+}
+
+.sectionAtracao {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 306px auto;
+  gap: 6.375rem;
+}
+
+.divTitulo {
+  margin-bottom: 2.5rem;
+}

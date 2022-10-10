@@ -2,7 +2,6 @@ import React from "react";
 import MoviesCard from "./MoviesCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import styles from "./Movies.module.css";
 import "swiper/css";
 
 export default function Movies({ movie }) {
@@ -10,22 +9,26 @@ export default function Movies({ movie }) {
   const [cardNumber, setCardNumber] = React.useState(6);
 
   React.useEffect(() => {
+    setScreen(window.innerWidth);
+
+    if (screen > 1000) {
+      setCardNumber(6);
+    } else if (screen <= 1000 && screen > 740) {
+      setCardNumber(4);
+    } else if (screen <= 740 && screen > 576) {
+      setCardNumber(3);
+    } else if (screen <= 576 && screen > 500) {
+      setCardNumber(2);
+    } else {
+      setCardNumber(1);
+    }
     function handleResize() {
       setScreen(window.innerWidth);
-      if (screen > 1000) {
-        setCardNumber(6);
-      } else if (screen <= 1000 && screen > 740) {
-        setCardNumber(4);
-      } else if (screen <= 740 && screen > 414) {
-        setCardNumber(3);
-      } else {
-        setCardNumber(1);
-      }
     }
 
     window.addEventListener("resize", handleResize);
   }, [screen]);
-
+  console.log(movie);
   return (
     <Swiper spaceBetween={24} grid={2} slidesPerView={cardNumber}>
       {movie &&

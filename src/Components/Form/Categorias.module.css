@@ -1,0 +1,26 @@
+.categoria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+
+.categorias {
+  width: 90px;
+  height: 32px;
+  border-radius: 32px;
+  border: 1px solid #fff;
+  padding: 4px 20px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categorias:hover {
+  transition: .3s;
+  transform: scale(1.2);
+  background-color: var(--green-weak);
+  border: none;
+  color: #000;
+}

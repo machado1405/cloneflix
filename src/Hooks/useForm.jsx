@@ -4,16 +4,16 @@ const types = {
   email: {
     regex:
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    message: "Preencha um email válido",
+    message: "Preencha um email válido.",
   },
   password: {
     regex: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8})$/,
     message:
-      "Precisa conter um caracter maiúsculo, um minúsculo, um dígito e um caracter especial",
+      "Precisa conter um caracter maiúsculo, um minúsculo, um dígito e um caracter especial.",
   },
   number: {
     regex: /^\d+$/,
-    message: "Utilize apenas números",
+    message: "Utilize apenas números.",
   },
 };
 
@@ -24,7 +24,7 @@ function useForm(type) {
   function validate(value) {
     if (type === false) return false;
     if (value.length === 0) {
-      setError("Preencha um valor");
+      setError("Preencha corretamente os dados.");
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
       setError(types[type].message);

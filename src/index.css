@@ -76,7 +76,7 @@ input {
   }
 }
 
-/* .App {
+.App {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh + 10rem);
@@ -84,4 +84,4 @@ input {
 
 .AppBody {
   flex: 1;
-} */
+}

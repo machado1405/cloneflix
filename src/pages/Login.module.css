@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.divCadastro a {
+  margin-top: 1rem
+}
+
 .cadastro {
   letter-spacing: 0.1rem;
   color: var(--green-weak);
