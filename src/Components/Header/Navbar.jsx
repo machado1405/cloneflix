@@ -10,6 +10,9 @@ export default function Navbar() {
         <Link to="/">
           <img src={Logo} alt="Logo" className={styles.logo} />
         </Link>
+        <Link to="/login" className={styles.cadastrar}>
+          Entrar
+        </Link>
         <Link to="/cadastro" className={styles.cadastrar}>
           Cadastrar
         </Link>

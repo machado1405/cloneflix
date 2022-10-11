@@ -1,12 +1,147 @@
-export const API_MOVIES_URL = import.meta.env.VITE_API;
-export const API_NODE_URL = import.meta.env.NODE_URL;
-export const API_KEY = import.meta.env.VITE_API_KEY;
+export const API_URL = "https://dogsapi.origamid.dev/json";
 
-export function GET_TOP_RATED() {
+export function TOKEN_POST(body) {
   return {
-    url: `${API_MOVIES_URL}top_rated?${API_KEY}`,
+    url: API_URL + "/jwt-auth/v1/token",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function TOKEN_VALIDATE_POST(token) {
+  return {
+    url: API_URL + "/jwt-auth/v1/token/validate",
+    options: {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
+}
+
+export function USER_GET(token) {
+  return {
+    url: API_URL + "/api/user",
     options: {
       method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
+}
+
+export function USER_POST(body) {
+  return {
+    url: API_URL + "/api/user",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PHOTO_POST(formData, token) {
+  return {
+    url: API_URL + "/api/photo",
+    options: {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      body: formData,
+    },
+  };
+}
+
+export function PHOTOS_GET({ page, total, user }) {
+  return {
+    url: `${API_URL}/api/photo/?_page=${page}&_${total}&_user=${user}`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+
+export function PHOTO_GET(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+  };
+}
+
+export function COMMENT_POST(id, body) {
+  const token = window.localStorage.getItem("token");
+  return {
+    url: `${API_URL}/api/comment/${id}`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PHOTO_DELETE(id) {
+  const token = window.localStorage.getItem("token");
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
+}
+
+export function PASSWORD_LOST(body) {
+  return {
+    url: API_URL + "/api/password/lost",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PASSWORD_RESET(body) {
+  return {
+    url: API_URL + "/api/password/reset",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function STATS_GET() {
+  const token = window.localStorage.getItem("token");
+  return {
+    url: API_URL + "/api/stats",
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
     },
   };
 }

@@ -7,18 +7,24 @@ import Cadastro from "./Pages/Cadastro";
 import Catalogo from "./Pages/Catalogo";
 import "./index.css";
 import Atracao from "./Pages/Atracao";
+import Dashboard from "./Pages/Dashboard";
+import ProtectedRoute from "./Helpers/ProtectedRoute";
+import { UserStorage } from "./UserContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route element={<App />}>
-          <Route path="/" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/catalogo/:id" element={<Catalogo />} />
-          <Route path="/catalogo/:id/movie/:id" element={<Atracao />} />
-        </Route>
-      </Routes>
+      <UserStorage>
+        <Routes>
+          <Route element={<App />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/" element={<Catalogo />} />
+            <Route path="/movie/:id" element={<Atracao />} />
+            <Route path="/dashboard/:id" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </UserStorage>
     </BrowserRouter>
   </React.StrictMode>,
 );

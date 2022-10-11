@@ -4,12 +4,17 @@ import Input from "../Components/Form/Input";
 import Titulo from "../Components/Form/Titulo";
 import Head from "../Helpers/Head";
 import useForm from "../Hooks/useForm";
+import useFetch from "../Hooks/useFetch";
+import { UserContext } from "../UserContext";
 import styles from "./Login.module.css";
 
 export default function Cadastro() {
   const email = useForm("email");
   const senha = useForm();
   const nome = useForm();
+
+  const { userLogin } = React.useContext(UserContext);
+  const { loading, error, request } = useFetch();
 
   return (
     <section className="container animeLeft">
